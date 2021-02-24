@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
   html{
     scroll-behavior: smooth;
+    font-size: 16px;
   }
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -20,7 +21,6 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font-family: 'Open Sans' , sans-serif;
     vertical-align: baseline;
     box-sizing: border-box;

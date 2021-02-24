@@ -1,6 +1,8 @@
+import Home from '@templates/Home'
+
 const Index = () => {
   return (
-    <h1>Index</h1>
+    <Home />
   )
 }
 
