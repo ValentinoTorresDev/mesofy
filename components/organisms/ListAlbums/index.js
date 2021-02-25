@@ -1,17 +1,32 @@
 import Title from '@atoms/Title'
-import { ContainerListAlbums, StyledListAlbums } from './styles'
+import Album from '@organisms/Album'
+import { ContainerListAlbums, StyledListAlbums, ListItemItemAlbum } from './styles'
 
 const ListAlbums = () => {
+  const test = [
+    { name: 'Pangea', image: 'pangea.jpg' },
+    { name: 'Caiga la Noche', image: 'caigaLaNoche.jpg' },
+    { name: 'Indeleble', image: 'indeleble.jpg' },
+    { name: 'Te lo advertí', image: 'teLoAdverti.jpg' }
+  ]
   return (
     <ContainerListAlbums>
       <Title m='0 0 1.25rem 0'>
         ALBUMS
       </Title>
       <StyledListAlbums>
-        <h1>1</h1>
-        <h1>2</h1>
-        <h1>3</h1>
-        <h1>4</h1>
+        {test.map((album, i) => {
+          return (
+            <ListItemItemAlbum
+              key={i}
+            >
+              <Album
+                nameAlbum={album.name}
+                image={album.image}
+              />
+            </ListItemItemAlbum>
+          )
+        })}
       </StyledListAlbums>
     </ContainerListAlbums>
   )

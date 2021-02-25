@@ -7,7 +7,7 @@ export const ContainerListAlbums = styled.section`
 export const StyledListAlbums = styled.ul`
   width: 100%;
   height: 100%;
-  max-height: calc(100vh - 29.25rem);
+  max-height: calc(100vh - 28.5rem);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 12.5rem;
@@ -28,4 +28,8 @@ export const StyledListAlbums = styled.ul`
     background-color: rgba(0,0,0, .32);
     border-radius: 0.25rem;
   }
+`
+
+export const ListItemItemAlbum = styled.li`
+  list-style: none;
 `

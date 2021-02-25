@@ -5,7 +5,7 @@ export const ContainerCardArtist = styled.article`
   height: 100%;
   grid-column-start: 1;
   grid-column-end: 3;
-  padding: 2rem 0 0 0;
+  padding: 1.25rem 0 0 0;
 `
 
 export const StyledCardArtist = styled.div`

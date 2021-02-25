@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ListMusic = styled.ul`
   width: 100%;
   height: 100%;
-  max-height: calc(100vh - 29.25rem);
+  max-height: calc(100vh - 28.5rem);
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.5rem;
