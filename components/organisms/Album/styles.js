@@ -8,6 +8,7 @@ export const ContainerAlbum = styled.button`
   width: 100%;
   height: 100%;
   min-height: 12.5rem;
+  max-height: 12.5rem;
   background-image: ${({ image }) => `url('/images/${image}')`};
   background-size: cover;
   background-position: center;
