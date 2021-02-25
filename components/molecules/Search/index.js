@@ -5,14 +5,14 @@ import useInputValue from '@hooks/useInputValue'
 const Search = () => {
   const searchText = useInputValue('')
 
-  const handleSearch = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
 
     searchText.setValue('')
   }
 
   return (
-    <ContainerSearch onSubmit={handleSearch}>
+    <ContainerSearch onSubmit={handleSubmit}>
       <StyledSearch
         placeholder='Buscar'
         value={searchText.value}

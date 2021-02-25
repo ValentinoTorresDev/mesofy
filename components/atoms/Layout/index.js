@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
         }
         @font-face {
           font-family: 'Open Sans';
-          src: url('/fonts/OpenSans-Bold');
+          src: url('/fonts/OpenSans-Bold.ttf');
           font-weight: 600;
           font-style: normal;
         }
