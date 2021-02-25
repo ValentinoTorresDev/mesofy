@@ -4,7 +4,7 @@ export const ContainerTabs = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  padding: 1.25rem 0 0 0;
+  padding: 1.25rem 0;
   grid-column-start: 1;
   grid-column-end: 3;
 `

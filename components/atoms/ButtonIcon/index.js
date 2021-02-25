@@ -3,8 +3,13 @@ import { ContainerIconButton, IconButton } from './styles'
 
 const ButtonIcon = (props) => {
   return (
-    <ContainerIconButton {...props}>
-      <IconButton>
+    <ContainerIconButton
+      className={props.className}
+      {...props}
+    >
+      <IconButton
+        {...props}
+      >
         {props.icon}
       </IconButton>
     </ContainerIconButton>
