@@ -12,13 +12,14 @@ export const ContainerPlayer = styled.nav`
   background-color: rgba(0,0,0,.8);
   backdrop-filter: blur(0.125rem);
   padding: 0.5rem 5rem;
+  z-index: 1;
 `
 
 export const ContainerSong = styled.div`
   display: flex;
   align-items: center;
 
-  & > div {
+  & > img {
     width: 4rem;
     height: 4rem;
     border-radius: 0.75rem;

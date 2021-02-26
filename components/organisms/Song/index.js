@@ -8,6 +8,7 @@ const Song = (props) => {
     <ContainerSong
       reproducing={props.reproducing}
       onClick={props.onClick}
+      {...props}
     >
       <NumberSong
         className='numberSong'

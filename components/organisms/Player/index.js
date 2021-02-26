@@ -7,38 +7,35 @@ import Pause from '@icons/Pause'
 import Play from '@icons/Play'
 import Previous from '@icons/Previous'
 import VolumeIcon from '@icons/Volume'
-import { useAppContext } from '@context/contextTabs'
+import { useAppContext } from '@context/index'
 import { ContainerPlayer, ContainerSong, TextNameSong, ContainerControls, ButtonNextPrevious, ButtonPLayPause, StyledControls, ContainerProgress, TextTime, ContainerBarProgress, BarProgress, ContainerControlVolume, ContainerBarVolume, BarVolume } from './styles'
+import secondsToMinutes from '@utils/secondsToMinutes'
 
-const Player = () => {
+const Player = (props) => {
   const { song } = useAppContext()
   const refPlayer = useRef(null)
   const [playing, setPlaying] = useState(false)
-  const [duration, setDuration] = useState(0)
   const [durationText, setDurationText] = useState('0:00')
   const [lapsedText, setLapsedText] = useState('0:00')
-  const [progress, setProgress] = useState(0)
   const [volume, setVolume] = useState(0.5)
 
-  const secondsToString = (seconds) => {
-    const stringDuration = (((seconds / 60).toFixed(2)).toString()).replace('.', ':')
-
-    return stringDuration
-  }
+  useEffect(() => {
+    return () => raf.cancel(handleLapsedText)
+  }, [])
 
   const handleDurationText = () => {
-    setDuration(refPlayer.current.duration())
-    setDurationText(secondsToString(refPlayer.current.duration()))
+    props.setDuration(Math.round(refPlayer.current.duration()))
+    setDurationText(secondsToMinutes(refPlayer.current.duration()))
   }
 
   const handleLapsedText = () => {
-    setLapsedText(secondsToString(refPlayer.current.seek()))
-    setProgress(refPlayer.current.seek())
+    setLapsedText(secondsToMinutes(refPlayer.current.seek()))
+    props.setProgress(Math.round(refPlayer.current.seek()))
     raf(handleLapsedText)
   }
 
   const handleLapsedChange = (e) => {
-    setProgress(e.target.value)
+    props.setProgress(e.target.value)
     refPlayer.current.seek(e.target.value)
     raf.cancel(handleLapsedText)
   }
@@ -50,7 +47,7 @@ const Player = () => {
   return (
     <>
       <ReactHowler
-        src={song}
+        src={song.audio}
         format={['ogg']}
         playing={playing}
         volume={volume}
@@ -61,14 +58,14 @@ const Player = () => {
       />
       <ContainerPlayer>
         <ContainerSong>
-          <Image
-            src='/images/teLoAdverti.jpg'
+          <img
+            src={song.image}
             width={64}
             height={64}
             alt='songPlaying'
           />
           <TextNameSong>
-            Te lo advertí
+            {song.title}
           </TextNameSong>
         </ContainerSong>
         <ContainerControls>
@@ -104,15 +101,15 @@ const Player = () => {
               {lapsedText}
             </TextTime>
             <ContainerBarProgress
-              duration={duration}
-              progress={progress}
+              duration={props.duration}
+              progress={props.progress}
             >
               <BarProgress
                 type='range'
                 step={0.01}
                 min={0}
-                max={duration}
-                value={progress}
+                max={props.duration}
+                value={props.progress}
                 onChange={handleLapsedChange}
                 onMouseUp={handleLapsedText}
               />

@@ -74,7 +74,7 @@ export const ContainerSong = styled.button`
       position: absolute;
       bottom: 0;
       left: 0.375rem;
-      width: calc(60% - 12px);
+      width: ${({ durationProgress, progress }) => `${progress * 100 / durationProgress}%`};
       height: 0.125rem;
       background-color: ${({ theme }) => theme.blue};
       transition: .3s;

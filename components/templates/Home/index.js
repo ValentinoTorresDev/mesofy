@@ -1,5 +1,4 @@
-import { useQuery } from '@apollo/react-hooks'
-import { gql } from 'apollo-boost'
+import { useState } from 'react'
 import About from '@molecules/About'
 import Header from '@molecules/Header'
 import Tabs from '@molecules/Tabs'
@@ -7,31 +6,14 @@ import CardArtist from '@organisms/CardArtist'
 import Albums from '@organisms/ListAlbums'
 import ListMusic from '@organisms/ListMusic'
 import Player from '@organisms/Player'
-import { useAppContext } from '@context/contextTabs'
+import ListAllMusic from '@containers/ListAllMusic'
+import { useAppContext } from '@context/index'
 import { ContainerHome, ContentTabs } from './styles'
-
-const getSongs = gql`
-query getSongs{
-    songs{
-      title
-      image{
-        url
-      }
-      file{
-        url
-      }
-      like
-      reproductions
-      album {
-        title
-      }
-    }    
-  }
-`
 
 const Home = () => {
   const { tab } = useAppContext()
-  const { loading, error, data } = useQuery(getSongs)
+  const [duration, setDuration] = useState(0)
+  const [progress, setProgress] = useState(0)
 
   return (
     <ContainerHome>
@@ -40,10 +22,9 @@ const Home = () => {
       <Tabs />
       <ContentTabs>
         {tab === 'todo' &&
-          <ListMusic
-            title='Canciones'
-            data={data}
-            loading={loading}
+          <ListAllMusic
+            duration={duration}
+            progress={progress}
           />}
         {tab === 'popular' &&
           <ListMusic
@@ -52,7 +33,12 @@ const Home = () => {
         {tab === 'acercaDe' && <About />}
       </ContentTabs>
       <Albums />
-      <Player />
+      <Player
+        duration={duration}
+        setDuration={setDuration}
+        progress={progress}
+        setProgress={setProgress}
+      />
     </ContainerHome>
   )
 }

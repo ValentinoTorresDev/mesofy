@@ -1,4 +1,4 @@
-import { useAppContext } from '@context/contextTabs'
+import { useAppContext } from '@context/index'
 import { ContainerTabs, StyledTabs, ButtonTab } from './styles'
 
 const Tabs = () => {

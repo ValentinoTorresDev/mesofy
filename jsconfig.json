@@ -7,8 +7,10 @@
       "@molecules/*": ["components/molecules/*"],
       "@organisms/*": ["components/organisms/*"],
       "@templates/*": ["components/templates/*"],
+      "@containers/*": ["containers/*"],
       "@icons/*": ["icons/*"],
       "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"],
       "@context/*": ["context/*"]
     }
   }

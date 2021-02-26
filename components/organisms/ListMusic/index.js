@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import Title from '@atoms/Title'
 import Song from '@organisms/Song'
-import { useAppContext } from '@context/contextTabs'
+import { useAppContext } from '@context/index'
 import { ListMusic, ListItemItemMusic } from './styles'
 
 const ListAllMusic = (props) => {
+  const { loading, data } = props
   const { setSong } = useAppContext()
   const [reproducing, setRepoducing] = useState(false)
 
@@ -16,16 +17,22 @@ const ListAllMusic = (props) => {
         {props.title}
       </Title>
       <ListMusic>
-        {!props.loading && props.data.songs.map((song, i) => {
+        {!loading && data.songs.map((song, i) => {
           return (
             <ListItemItemMusic key={i}>
               <Song
                 number={i + 1}
                 title={song.title}
-                duration='03:33'
+                duration={song.duration}
+                durationProgress={props.duration}
+                progress={props.progress}
                 reproducing={reproducing === i}
                 onClick={() => {
-                  setSong(song.file.url)
+                  setSong({
+                    audio: song.audio.url,
+                    image: song.image.url,
+                    title: song.title
+                  })
                   setRepoducing(i)
                 }}
               />

@@ -4,7 +4,7 @@ import ApolloCLient from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks'
 import GlobalStyles from '@styles/globalStyles'
 import Theme from '@styles/theme'
-import { AppContextProvider } from '@context/contextTabs'
+import { AppContextProvider } from '@context/index'
 
 const client = new ApolloCLient({
   uri: 'https://api-us-west-2.graphcms.com/v2/ckllo3ei9z80k01z35dfi2885/master'
