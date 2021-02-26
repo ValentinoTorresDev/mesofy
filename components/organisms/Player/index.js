@@ -7,9 +7,11 @@ import Pause from '@icons/Pause'
 import Play from '@icons/Play'
 import Previous from '@icons/Previous'
 import VolumeIcon from '@icons/Volume'
+import { useAppContext } from '@context/contextTabs'
 import { ContainerPlayer, ContainerSong, TextNameSong, ContainerControls, ButtonNextPrevious, ButtonPLayPause, StyledControls, ContainerProgress, TextTime, ContainerBarProgress, BarProgress, ContainerControlVolume, ContainerBarVolume, BarVolume } from './styles'
 
 const Player = () => {
+  const { song } = useAppContext()
   const refPlayer = useRef(null)
   const [playing, setPlaying] = useState(false)
   const [duration, setDuration] = useState(0)
@@ -48,7 +50,7 @@ const Player = () => {
   return (
     <>
       <ReactHowler
-        src='https://media.graphcms.com/3hGIT6IhQOOtVX7Dmdzf'
+        src={song}
         format={['ogg']}
         playing={playing}
         volume={volume}

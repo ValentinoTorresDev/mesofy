@@ -12,20 +12,27 @@ import { ContainerHome, ContentTabs } from './styles'
 
 const getSongs = gql`
 query getSongs{
-  songs{
-    id
-    url {
-      id
-      url
-    }
+    songs{
+      title
+      image{
+        url
+      }
+      file{
+        url
+      }
+      like
+      reproductions
+      album {
+        title
+      }
+    }    
   }
-}
 `
 
 const Home = () => {
   const { tab } = useAppContext()
   const { loading, error, data } = useQuery(getSongs)
-  console.log(data)
+
   return (
     <ContainerHome>
       <Header />
@@ -35,6 +42,8 @@ const Home = () => {
         {tab === 'todo' &&
           <ListMusic
             title='Canciones'
+            data={data}
+            loading={loading}
           />}
         {tab === 'popular' &&
           <ListMusic
