@@ -37,4 +37,12 @@ export const IconButton = styled.span`
   ${({ square }) => square && css`
     border-radius: 0.5rem;
   `}
+
+  ${({ like }) => like && css`
+    background-color: transparent;
+
+    & svg{
+      fill: ${({ theme }) => theme.white};
+    }
+  `}
 `

@@ -3,9 +3,9 @@ import About from '@molecules/About'
 import Header from '@molecules/Header'
 import Tabs from '@molecules/Tabs'
 import CardArtist from '@organisms/CardArtist'
-import Albums from '@organisms/ListAlbums'
+import ListAllAlbums from '@containers/ListAllAlbums'
 import ListMusic from '@organisms/ListMusic'
-import Player from '@organisms/Player'
+import PlayerContainer from '@containers/PlayerContainer'
 import ListAllMusic from '@containers/ListAllMusic'
 import { useAppContext } from '@context/index'
 import { ContainerHome, ContentTabs } from './styles'
@@ -32,8 +32,8 @@ const Home = () => {
           />}
         {tab === 'acercaDe' && <About />}
       </ContentTabs>
-      <Albums />
-      <Player
+      <ListAllAlbums />
+      <PlayerContainer
         duration={duration}
         setDuration={setDuration}
         progress={progress}

@@ -8,7 +8,7 @@ export const ContainerHome = styled.section`
   grid-template-rows: 2.5rem 17.25rem 4.375rem auto;
   column-gap: 2.5rem;
   background-color: ${({ theme }) => theme.purple};
-  padding: 1rem 5rem;
+  padding: 1rem 5rem 6rem 5rem;
   align-items: flex-start;
 `
 

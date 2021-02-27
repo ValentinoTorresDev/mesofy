@@ -48,6 +48,15 @@ const GlobalStyles = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  body::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: #115DEF;
+  }
+  body::-webkit-scrollbar-track {
+    background-color: rgba(0,0,0, .32);
+  }
 `
 
 export default GlobalStyles

@@ -5,6 +5,7 @@ const ButtonIcon = (props) => {
   return (
     <ContainerIconButton
       className={props.className}
+      onClick={props.onClick}
       {...props}
     >
       <IconButton

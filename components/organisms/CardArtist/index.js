@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Button from '@atoms/Button'
-import ButtonIcon from '@atoms/ButtonIcon'
+import { useAppContext } from '@context/index'
 import {
   ContainerCardArtist,
   StyledCardArtist,
@@ -14,6 +14,7 @@ import {
 } from './styles'
 
 const CardArtist = () => {
+  const { playing, setPlaying } = useAppContext()
   return (
     <ContainerCardArtist>
       <StyledCardArtist>
@@ -36,12 +37,12 @@ const CardArtist = () => {
           </div>
           <FooterCardArtist>
             <ContainerPLayFavourite>
-              <Button>
+              <Button
+                onClick={() => setPlaying(!playing)}
+                playing={playing}
+              >
                 REPRODUCIR
               </Button>
-              <ButtonIcon
-                m='0 0 0 .5rem'
-              />
             </ContainerPLayFavourite>
             <Followers>
               93.089   —   Seguidores

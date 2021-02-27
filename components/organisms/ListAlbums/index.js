@@ -1,28 +1,34 @@
 import Title from '@atoms/Title'
 import Album from '@organisms/Album'
+import { useAppContext } from '@context/index'
 import { ContainerListAlbums, StyledListAlbums, ListItemItemAlbum } from './styles'
 
-const ListAlbums = () => {
-  const test = [
-    { name: 'Pangea', image: 'pangea.jpg' },
-    { name: 'Caiga la Noche', image: 'caigaLaNoche.jpg' },
-    { name: 'Indeleble', image: 'indeleble.jpg' },
-    { name: 'Te lo advertí', image: 'teLoAdverti.jpg' }
-  ]
+const ListAlbums = (props) => {
+  const { loading, data } = props
+  const { setIdPlaylist, setPositionPlaylist } = useAppContext()
+
+  const handleChangeAlbum = (id) => {
+    setIdPlaylist(id)
+    setPositionPlaylist(0)
+  }
+
   return (
     <ContainerListAlbums>
       <Title m='0 0 1.25rem 0'>
         ALBUMS
       </Title>
       <StyledListAlbums>
-        {test.map((album, i) => {
+        {!loading && data.albums.map((album, i) => {
           return (
             <ListItemItemAlbum
               key={i}
             >
               <Album
-                nameAlbum={album.name}
-                image={album.image}
+                nameAlbum={album.title}
+                image={album.image.url}
+                onClick={() => {
+                  handleChangeAlbum(album.id)
+                }}
               />
             </ListItemItemAlbum>
           )

@@ -6,8 +6,7 @@ import { ListMusic, ListItemItemMusic } from './styles'
 
 const ListAllMusic = (props) => {
   const { loading, data } = props
-  const { setSong } = useAppContext()
-  const [reproducing, setRepoducing] = useState(false)
+  const { song, setSong, setPositionPlaylist } = useAppContext()
 
   return (
     <>
@@ -17,23 +16,25 @@ const ListAllMusic = (props) => {
         {props.title}
       </Title>
       <ListMusic>
-        {!loading && data.songs.map((song, i) => {
+        {!loading && data.songs.map((songItem, i) => {
           return (
             <ListItemItemMusic key={i}>
               <Song
                 number={i + 1}
-                title={song.title}
-                duration={song.duration}
+                title={songItem.title}
+                duration={songItem.duration}
                 durationProgress={props.duration}
                 progress={props.progress}
-                reproducing={reproducing === i}
+                reproducing={songItem.id === song.id}
                 onClick={() => {
                   setSong({
-                    audio: song.audio.url,
-                    image: song.image.url,
-                    title: song.title
+                    id: songItem.id,
+                    audio: songItem.audio.url,
+                    image: songItem.image.url,
+                    title: songItem.title,
+                    idAlbum: songItem.album.id
                   })
-                  setRepoducing(i)
+                  setPositionPlaylist(i)
                 }}
               />
             </ListItemItemMusic>

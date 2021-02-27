@@ -3,6 +3,7 @@ import { ContainerAlbum, NameAlbum } from './styles'
 const Album = (props) => {
   return (
     <ContainerAlbum
+      onClick={props.onClick}
       {...props}
     >
       <NameAlbum>
