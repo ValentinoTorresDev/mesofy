@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Breakpoints from '@styles/breakpoints'
 
 export const ContainerHome = styled.section`
   width: 100%;
@@ -10,6 +11,15 @@ export const ContainerHome = styled.section`
   background-color: ${({ theme }) => theme.purple};
   padding: 1rem 5rem 6rem 5rem;
   align-items: flex-start;
+
+  @media (max-width: ${Breakpoints.desktop}){
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  @media (max-width: ${Breakpoints.tablet}){
+    padding: 1rem 1.25rem 6rem 1.25rem;
+  }
 `
 
 export const ContentTabs = styled.section`

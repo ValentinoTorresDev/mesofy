@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Title from '@atoms/Title'
 import Song from '@organisms/Song'
 import { useAppContext } from '@context/index'

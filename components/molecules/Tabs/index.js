@@ -10,9 +10,6 @@ const Tabs = () => {
         <ButtonTab onClick={() => setTab('todo')}>
           Todo
         </ButtonTab>
-        <ButtonTab onClick={() => setTab('popular')}>
-          Popular
-        </ButtonTab>
         <ButtonTab onClick={() => setTab('acercaDe')}>
           Acerca de
         </ButtonTab>

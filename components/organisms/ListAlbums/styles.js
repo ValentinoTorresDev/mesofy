@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Breakpoints from '@styles/breakpoints'
 
 export const ContainerListAlbums = styled.section`
   width: 100%;
@@ -27,6 +28,10 @@ export const StyledListAlbums = styled.ul`
   &::-webkit-scrollbar-track {
     background-color: rgba(0,0,0, .32);
     border-radius: 0.25rem;
+  }
+
+  @media (max-width: ${Breakpoints.tablet}){
+    grid-template-columns: 1fr;
   }
 `
 

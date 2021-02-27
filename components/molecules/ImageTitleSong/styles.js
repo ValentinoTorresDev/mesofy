@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Breakpoints from '@styles/breakpoints'
 
 export const ContainerSong = styled.div`
   display: flex;
@@ -9,6 +10,10 @@ export const ContainerSong = styled.div`
     height: 4rem;
     border-radius: 0.75rem;
     overflow: hidden;
+  }
+
+  @media (max-width: ${Breakpoints.desktop}){
+    display: none;
   }
 `
 

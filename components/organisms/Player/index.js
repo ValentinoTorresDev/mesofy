@@ -49,6 +49,7 @@ const Player = (props) => {
   const handleVolumeChange = (e) => {
     setVolume(e.target.value)
   }
+
   const handleLike = () => {
     props.toggleLike({ variables: { id: playlist[positionPlaylist].id, like: !(playlist[positionPlaylist].like) } })
     setLike(!like)

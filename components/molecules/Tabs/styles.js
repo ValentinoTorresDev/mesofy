@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import Breakpoints from '@styles/breakpoints'
 
 export const ContainerTabs = styled.div`
   display: flex;
@@ -7,6 +8,11 @@ export const ContainerTabs = styled.div`
   padding: 1.25rem 0;
   grid-column-start: 1;
   grid-column-end: 3;
+
+  @media (max-width: ${Breakpoints.desktop}){
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
 `
 
 export const StyledTabs = styled.div`
@@ -29,12 +35,8 @@ export const StyledTabs = styled.div`
       left: 0;
     `}
 
-    ${({ tab }) => tab === 'popular' && css`
-      left: 5rem;
-    `}
-
     ${({ tab }) => tab === 'acercaDe' && css`
-      left: 10rem;
+      left: 5rem;
     `}
   }
 `

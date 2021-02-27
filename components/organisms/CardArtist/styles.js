@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Breakpoints from '@styles/breakpoints'
 
 export const ContainerCardArtist = styled.article`
   width: 100%;
@@ -6,6 +7,11 @@ export const ContainerCardArtist = styled.article`
   grid-column-start: 1;
   grid-column-end: 3;
   padding: 1.25rem 0 0 0;
+
+  @media (max-width: ${Breakpoints.desktop}){
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
 `
 
 export const StyledCardArtist = styled.div`
@@ -15,6 +21,16 @@ export const StyledCardArtist = styled.div`
 
   & > div:nth-child(1){
     flex-shrink: 0;
+  }
+
+  @media (max-width: ${Breakpoints.tablet}){
+    & > div:nth-child(1){
+      display: none!important;
+    }
+
+    & button {
+      margin: 1rem 0;
+    }
   }
 `
 
@@ -55,6 +71,11 @@ export const FooterCardArtist = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+
+  @media (max-width: ${Breakpoints.tablet}){
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `
 
 export const ContainerPLayFavourite = styled.div`

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const ContainerProgress = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
 `
 
@@ -14,7 +15,7 @@ export const TextTime = styled.span`
 
 export const ContainerBarProgress = styled.div`
   position: relative;
-  width: 27rem;
+  width: 100%;
   height: 0.125rem;
   margin: 0 1rem;
 

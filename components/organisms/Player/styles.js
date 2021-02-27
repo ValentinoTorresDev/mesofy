@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Breakpoints from '@styles/breakpoints'
 
 export const ContainerPlayer = styled.nav`
   position: fixed;
@@ -13,6 +14,14 @@ export const ContainerPlayer = styled.nav`
   backdrop-filter: blur(0.125rem);
   padding: 0.5rem 5rem;
   z-index: 1;
+
+  @media (max-width: ${Breakpoints.desktop}){
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: ${Breakpoints.tablet}){
+    padding: 0.5rem 1.25rem;
+  }
 `
 
 export const ContainerControls = styled.div`
@@ -28,5 +37,9 @@ export const ContainerControlVolumeAndLike = styled.div`
 
   & button {
     margin: 0 0 0 1rem;
+  }
+
+  @media (max-width: ${Breakpoints.desktop}){
+    display: none;
   }
 `

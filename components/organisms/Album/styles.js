@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const ContainerAlbum = styled.button`
   position: relative;
@@ -16,6 +16,10 @@ export const ContainerAlbum = styled.button`
   outline: none;
   cursor: pointer;
   overflow: hidden;
+
+  ${({ active }) => active && css`
+    border: solid 2px ${({ theme }) => theme.blue};
+  `}
 `
 
 export const NameAlbum = styled.p`

@@ -28,13 +28,13 @@ const ControlsPlayer = () => {
   }
 
   const setLast = () => {
-    if (positionPlaylist !== 0) {
+    if (positionPlaylist === 0) {
       setSong({
         id: playlist[playlist.length - 1].id,
         audio: playlist[playlist.length - 1].audio.url,
         image: playlist[playlist.length - 1].image.url,
         title: playlist[playlist.length - 1].title,
-        idAlbum: playlist[positionPlaylist - 1].album.id
+        idAlbum: playlist[playlist.length - 1].album.id
       })
       setPositionPlaylist(playlist.length - 1)
     } else {

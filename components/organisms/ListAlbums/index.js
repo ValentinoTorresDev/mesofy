@@ -5,7 +5,7 @@ import { ContainerListAlbums, StyledListAlbums, ListItemItemAlbum } from './styl
 
 const ListAlbums = (props) => {
   const { loading, data } = props
-  const { setIdPlaylist, setPositionPlaylist } = useAppContext()
+  const { idPlaylist, setIdPlaylist, setPositionPlaylist } = useAppContext()
 
   const handleChangeAlbum = (id) => {
     setIdPlaylist(id)
@@ -26,6 +26,7 @@ const ListAlbums = (props) => {
               <Album
                 nameAlbum={album.title}
                 image={album.image.url}
+                active={album.id === idPlaylist}
                 onClick={() => {
                   handleChangeAlbum(album.id)
                 }}
